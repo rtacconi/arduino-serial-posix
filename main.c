@@ -5,9 +5,6 @@
  * A simple command-line example program showing how a computer can
  * communicate with an Arduino board. Works on any POSIX system (Mac/Unix/PC)
  *
- * Code modified from the example of  Tod E. Kurt, tod@todbot.com
- * http://todbot.com/blog/
- *
  */
 
 
@@ -23,13 +20,11 @@ int main(int argc, char *argv[]) {
     fd = serialport_init("/dev/tty.usbserial-A70062k8", baudrate);
     if(fd==-1) return -1;
     delay(2000);
-    //rc = serialport_write(fd, "1");
-    //if(rc==-1) return -1;
-    //delay(7000);
-    while(1) {
-        serialport_read_until(fd, buf, '\n');
-        printf("read: %s",buf);
-    }
+    rc = serialport_write(fd, "tell me sensor 1\n");
+    if(rc==-1) return -1;
+    //delay(2000);
+    serialport_read_until(fd, buf, '\n');
+    printf("read: %s",buf);
 
     exit(EXIT_SUCCESS);
 } // end main

@@ -3,6 +3,10 @@
  * Author: riccardotacconi
  *
  * Created on December 21, 2010, 11:59 PM
+ *
+ *
+ * Code derived from the example of  Tod E. Kurt, tod@todbot.com
+ * http://todbot.com/blog/
  */
 
 #include <stdio.h>    /* Standard input/output definitions */
